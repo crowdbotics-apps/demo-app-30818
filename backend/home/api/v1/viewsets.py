@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from home.models import Member
-from .serializers import MemberSerializer
+from home.models import Member, Wish
+from .serializers import MemberSerializer, WishSerializer
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -41,3 +41,12 @@ class MemberViewSet(viewsets.ModelViewSet):
         authentication.TokenAuthentication,
     )
     queryset = Member.objects.all()
+
+
+class WishViewSet(viewsets.ModelViewSet):
+    serializer_class = WishSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = Wish.objects.all()

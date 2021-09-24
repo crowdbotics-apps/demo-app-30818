@@ -17,3 +17,14 @@ class Member(models.Model):
     gender = models.CharField(
         max_length=256,
     )
+
+
+class Wish(models.Model):
+    "Generated Model"
+    name = models.CharField(
+        max_length=256,
+    )
+    product_url = models.URLField()
+    status = models.CharField(
+        max_length=256,
+    )
